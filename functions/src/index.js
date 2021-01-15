@@ -6,7 +6,7 @@ admin.initializeApp();
 
 const db = admin.firestore();
 
-exports.Test = functions.https.onRequest(async (req, res) => {
+exports.sandbox = functions.https.onRequest(async (req, res) => {
     const foodsCollection = db.collection("dishes");
     const snapshot = await foodsCollection.get();
     const promises = [];
@@ -22,9 +22,11 @@ exports.Test = functions.https.onRequest(async (req, res) => {
     res.json({});
 });
 
-exports.AppInfo = functions.https.onRequest((req, res) => {
+exports.appInfo = functions.https.onRequest((req, res) => {
     res.json({
         name: packageData.name,
         version: packageData.version
     });
 });
+
+Object.assign(exports, require("./handlers"));
