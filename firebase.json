@@ -8,7 +8,13 @@
   },
   "hosting": {
     "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/favicon.ico",
+        "destination": "/logo.png"
+      }
+    ]
   },
   "storage": {
     "rules": "storage.rules"

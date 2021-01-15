@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/mearns/meal-planner#readme",
   "engines": {
-    "node": "^12.14.0"
+    "node": "^14.13.0"
   },
   "main": "tools/index.js",
   "files": [
@@ -30,7 +30,7 @@
     "test-only": "jest",
     "build": "echo \"No build required for this project.\"",
     "verify": "npm run check && npm run test",
-    "report": "mkdirp public && copyfiles logo.png public/ && copyfiles \"reports/**/*\" public && mustache package.json dev-scripts/resources/pages/index.hbs > public/index.html"
+    "public": "mkdirp public && copyfiles logo.png public/"
   },
   "husky": {
     "hooks": {

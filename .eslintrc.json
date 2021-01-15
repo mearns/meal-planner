@@ -1,3 +1,4 @@
 {
-  "extends": ["mearns/jest"]
+  "extends": ["mearns/jest"],
+  "root": true
 }
