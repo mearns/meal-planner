@@ -1,24 +1,25 @@
 {
-  "name": "PROJECT_NAME",
+  "name": "meal-planner",
+  "private": true,
   "version": "0.1.0",
-  "description": "$PROJECT_DESCRIPTION$",
+  "description": "Helps you plan your meals. This is a firebase / google-actions project; node and npm are used at the root level for build tools and scripting.",
   "keywords": [],
   "author": "Brian Mearns <mearns.b@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mearns/PROJECT-NAME.git"
+    "url": "git+https://github.com/mearns/meal-planner.git"
   },
   "bugs": {
-    "url": "https://github.com/mearns/PROJECT-NAME/issues"
+    "url": "https://github.com/mearns/meal-planner/issues"
   },
-  "homepage": "https://github.com/mearns/PROJECT-NAME#readme",
+  "homepage": "https://github.com/mearns/meal-planner#readme",
   "engines": {
     "node": "^12.14.0"
   },
-  "main": "src/index.js",
+  "main": "tools/index.js",
   "files": [
-    "src/**/*"
+    "tools/**/*"
   ],
   "scripts": {
     "clean": "rimraf reports/ public/",
@@ -29,8 +30,7 @@
     "test-only": "jest",
     "build": "echo \"No build required for this project.\"",
     "verify": "npm run check && npm run test",
-    "report": "mkdirp public && copyfiles logo.png public/ && copyfiles \"reports/**/*\" public && mustache package.json dev-scripts/resources/pages/index.hbs > public/index.html",
-    "start": "node ."
+    "report": "mkdirp public && copyfiles logo.png public/ && copyfiles \"reports/**/*\" public && mustache package.json dev-scripts/resources/pages/index.hbs > public/index.html"
   },
   "husky": {
     "hooks": {
@@ -43,16 +43,19 @@
     "copyfiles": "^2.4.0",
     "eslint": "^7.13.0",
     "eslint-config-mearns": "git+https://github.com/mearns/eslint-config-mearns.git#v0.3.0",
+    "firebase-tools": "^9.2.0",
     "husky": "^4.3.0",
     "jest": "^26.6.3",
     "jest-junit": "^12.0.0",
     "jest-stare": "^2.2.0",
+    "js-yaml": "^4.0.0",
     "mkdirp": "^1.0.4",
     "mustache": "^4.0.1",
     "node": "^13.14.0",
     "nyc": "^15.1.0",
     "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.2"
+    "pretty-quick": "^2.0.2",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {}
 }
