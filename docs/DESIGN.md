@@ -14,10 +14,12 @@ that it's made with). This allows for flexibility but we will need to someone id
 can actually be served as part of a meal. I don't want the function generating a meal of "ketchup with a side
 of relish" for dinner.
 
-To keep the queries surface area a little more manageable, I'm still going to define `dish` as a data type,
-but it will basically just be a reference to another a `food`. Every `dish` is a `food`, but not every `food`
-is a `dish`. And a `food` can have other `foods` as ingredients. We can go even higher and have some _predefined_
-`meals` which are collections of `dishes`.
-
 So these _ingredients_ are a "has a" relationship; we will also want to define an "is a" relationship for foods.
 E.g., we want to have generic "apple" as a food, but also "macintosh apple" as a specific type of apple.
+
+**NB**: We basically need to flatten every filterable thing into a `dish`. We can add tags to each item, for general
+filtering, but then also qualify the tags for more specific filtering. Like `{ tag: "Mexican", tagType: "cuisine" }`
+and `{ tag: "raisins", tagType: "ingredient", details: { quantity: { ... } } }`. One of these tags will be
+"dish", with tagType "rank", and things like "ketchup" will _not_ have it. We'll use this to make sure we're only
+building meals out of dishes. we'll also use a "contains" tagType which includes all of it's ingredients, including
+recursive ingredients, and also all the _parent types_ of all of it's ingredients (including transitive).
